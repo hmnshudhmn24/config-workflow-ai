@@ -5,7 +5,7 @@ Works offline with a rule-based planner, with a clean hook to drop in your LLM l
 
 > “Set replicas to 3, image to `nginx:1.25`, add env `FOO=bar`, and enable autoscaling to 50–80% CPU.”
 
----
+
 
 ## ✨ Features
 - 🧠 **NLU** (rule-based) for common infra intents: replicas, image, env, ports, names, autoscaling, generic `set path=value`.
@@ -14,7 +14,7 @@ Works offline with a rule-based planner, with a clean hook to drop in your LLM l
 - 🧪 **Safe edits**: `--plan`, `--diff`, and `--backup`.
 - 🔌 **Bring-your-own-LLM**: Drop-in hook in `engine.py` to swap the planner.
 
----
+
 
 ## 📦 Install
 ```bash
@@ -23,7 +23,7 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
----
+
 
 ## 🚀 Quick Start
 
@@ -58,7 +58,7 @@ python askcfg.py "set logging.level to DEBUG and set service.port to 9090" \
   -i examples/config.json --diff
 ```
 
----
+
 
 ## 🧩 How It Works
 1. **Planner** (`src/engine.py`) parses your prompt into **actions**:
@@ -69,7 +69,7 @@ python askcfg.py "set logging.level to DEBUG and set service.port to 9090" \
 2. **Transformer** (`src/transforms.py`) applies actions to the loaded object(s). If autoscaling is requested, it emits an **HPA** manifest as an extra YAML document.
 3. **I/O** (`src/io_utils.py`) handles format detection, multi-doc YAML, **diffs**, and **backups**.
 
----
+
 
 ## 🛡️ Safety & Idempotency
 - Use `--plan` to preview the actions:
@@ -79,7 +79,7 @@ python askcfg.py "set logging.level to DEBUG and set service.port to 9090" \
 - Use `--diff` to see a unified, colorized diff before writing.
 - Use `--backup` for in-place edits.
 
----
+
 
 ## 📚 Supported Intents (Rule-Based)
 - **K8s**
@@ -91,7 +91,7 @@ python askcfg.py "set logging.level to DEBUG and set service.port to 9090" \
 
 > Anything not matched falls back to annotations under `metadata.annotations.askcfg.*` to avoid silent failure.
 
----
+
 
 ## 🔭 Examples
 
@@ -124,14 +124,9 @@ set replicas to 3 and image to nginx:1.25
 +        image: nginx:1.25
 ```
 
----
 
 ## 🧪 Tests (manual)
 - Run the quick-start commands above.
 - Validate multi-doc output when enabling autoscaling.
 - Try generic JSON edit on `examples/config.json`.
 
----
-
-## 📜 License
-MIT — Have fun automating config edits! 🎉
