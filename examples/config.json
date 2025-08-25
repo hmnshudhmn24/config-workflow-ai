@@ -1,0 +1,9 @@
+{
+  "service": {
+    "host": "localhost",
+    "port": 8080
+  },
+  "logging": {
+    "level": "INFO"
+  }
+}\n

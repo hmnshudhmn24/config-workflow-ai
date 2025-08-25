@@ -1,0 +1,4 @@
+PyYAML>=6.0
+jsonschema>=4.21
+colorama>=0.4
+rich>=13.7
